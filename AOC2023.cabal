@@ -65,7 +65,8 @@ executable AOC2023
     other-modules:    Helpers,
                       Day01,
                       Day02,
-                      Day03
+                      Day03,
+                      Day04
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
