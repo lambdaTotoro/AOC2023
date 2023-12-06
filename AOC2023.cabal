@@ -67,7 +67,8 @@ executable AOC2023
                       Day02,
                       Day03,
                       Day04,
-                      Day05
+                      Day05,
+                      Day06
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
@@ -79,6 +80,7 @@ executable AOC2023
                       megaparsec ^>= 9.6,
                       parser-combinators ^>= 1.3,
                       array ^>= 0.5,
+                      combinat ^>= 0.2,
 
     -- Directories containing source files.
     hs-source-dirs:   code
