@@ -4,15 +4,12 @@ import Control.Monad (void, msum)
 import Control.Monad.Combinators
 
 import Data.List (intersperse, foldl')
-import Data.Void
 
-import Text.Megaparsec
 import Text.Megaparsec.Char
 import Text.Megaparsec.Char.Lexer (decimal)
 
 import Helpers
 
-type Parser  = Parsec Void String
 type Seed    = Integer
 type Mapping = (Integer, Integer, Integer) 
 data Map     = Map String String [Mapping]
@@ -41,11 +38,6 @@ parseMap = do
   void $ string " map:#"
   mappings <- some parseMapping
   return $ Map source destination mappings
-
-makeParse :: Parser a -> String -> a
-makeParse parser text = case parseMaybe parser text of
-  (Just n) -> n
-  Nothing  -> error $ "PARSE ERROR!\n" ++ (show text)
 
 -- # Functions (Part 1) # --
 

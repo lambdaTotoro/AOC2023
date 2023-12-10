@@ -2,6 +2,16 @@ module Helpers where
 
 import Debug.Trace
 
+import Data.Void
+import Text.Megaparsec
+
+type Parser = Parsec Void String
+
+makeParse :: Parser a -> String -> a
+makeParse parser text = case parseMaybe parser text of
+  (Just n) -> n
+  Nothing  -> error $ "PARSE ERROR!\n" ++ (show text)
+
 oTrace :: (Show a) => a -> a
 oTrace foo = trace (show foo) foo
 
